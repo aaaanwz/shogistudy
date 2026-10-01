@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="相手の出方から定跡を選び、一手ずつ盤面で学ぶ将棋の勉強サイト。三間飛車・石田流・早石田・三二飛戦法。">
+  <meta name="theme-color" content="#244c3e"><title>将棋の道しるべ — 分岐から学ぶ定跡</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#study">盤面へスキップ</a>
+  <header class="site-header"><a class="brand" href="./"><span class="brand-mark">歩</span><span>将棋の道しるべ<small>SHOGI STUDY</small></span></a><span class="header-note">一手の理由が、見えてくる。</span><button class="quiet" id="help-open">使い方 <span aria-hidden="true">↗</span></button></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">OPENING NOTEBOOK <span>01</span></p><h1>分岐をたどる。<br class="mobile-only">定跡が身につく。</h1><p>相手の一手を見て、次の方針を選ぶ。<br class="mobile-only">１級から初段へ。三間飛車の判断力を磨きましょう。</p></div><div class="intro-stamp" aria-hidden="true">三<br>間<br>飛<br>車</div></section>
+    <div class="course-bar"><label for="course">学ぶ戦法 <select id="course"></select></label><span id="lesson-count"></span><span class="course-hint">まずは「石田流本組」から</span></div>
+    <div class="workspace">
+      <aside class="flow-panel" aria-labelledby="flow-title"><div class="section-label"><span>01 / 選ぶ</span><span class="small">相手の出方で分岐</span></div><h2 id="flow-title">定跡の道しるべ</h2><div class="side-tabs" role="group" aria-label="あなたの手番"><button data-side="0">▲ 先手で指す</button><button data-side="1">△ 後手で指す</button></div><p class="flow-help">枝の先の定跡を選ぶと、盤面に表示されます。</p><nav id="flow" aria-label="定跡フローチャート"></nav><div class="flow-footer"><span class="legend-dot"></span>選択中のルート <span>▲ 先手　△ 後手</span></div></aside>
+      <section class="study-panel" id="study" aria-labelledby="lesson-title"><div class="section-label"><span>02 / 並べる</span><button class="quiet" id="share">局面リンクをコピー ↗</button></div><div class="lesson-heading"><div><div id="lesson-badges"></div><h2 id="lesson-title"></h2><p id="subtitle"></p></div><button id="bookmark" class="bookmark" aria-pressed="false" title="この定跡を学習済みにする">✓<span>学習済み</span></button></div>
+        <div class="study-columns"><div class="board-column"><div class="board-toolbar"><span id="perspective"></span><button class="quiet" id="flip">↻ 盤面を反転</button></div><div id="hand-top" class="hand"></div><div class="board-frame"><div id="file-labels" class="file-labels" aria-hidden="true"></div><div class="board-row"><div id="board" class="board" role="img"></div><div id="rank-labels" class="rank-labels" aria-hidden="true"></div></div></div><div id="hand-bottom" class="hand"></div><div class="position-info"><span id="turn"></span><strong id="move-count"></strong></div><input id="timeline" type="range" min="0" value="0" aria-label="表示する手数"><div class="playback" role="group" aria-label="棋譜の再生"><button id="first" aria-label="初手の前に戻る" title="初手の前に戻る">|‹</button><button id="prev" aria-label="一手戻る">‹ <span>戻る</span></button><button id="play" aria-label="自動再生">▶</button><button id="next" aria-label="一手進む"><span>進む</span> ›</button><button id="last" aria-label="最終手へ" title="最終手へ">›|</button></div><p class="keyboard-hint">← → キーでも、一手ずつ進められます</p></div>
+        <div class="notes-column"><div class="move-note" aria-live="polite" aria-atomic="true"><p class="eyebrow" id="note-kicker">この定跡の入口</p><h3 id="note-title"></h3><p id="note-body"></p></div><div id="variations"></div><div class="moves-header"><h3>手順</h3><button class="quiet" id="branch-jump">分岐の局面へ ↓</button></div><div id="move-list" class="move-list" role="group" aria-label="手順を選ぶ"></div></div></div>
+        <div class="learning-points"><div><span class="point-label">覚えること</span><p id="goal"></p></div><div><span class="point-label caution-label">気をつけること</span><p id="caution"></p></div></div><section class="review-section" aria-labelledby="review-title"><div class="section-label"><span>03 / 考える</span><span>初段を目指す確認問題</span></div><div class="review-heading"><h3 id="review-title">分岐点で、一手考える。</h3><button class="quiet" id="quiz-jump">問題の局面を盤面で見る ↗</button></div><p id="quiz-question"></p><div id="quiz-choices" role="group" aria-label="確認問題の選択肢"></div><p id="quiz-feedback" aria-live="polite" hidden></p><details class="plans"><summary>この先の方針・実戦で確認すること</summary><ul id="plans"></ul></details></section><details class="sources"><summary>教材について・参考資料</summary><p>基本の狙いを理解するための代表手順です。駒組み例・失敗例はその旨を明記しています。すべての応手を網羅した定跡集や、最新の最善手の保証ではありません。解説文は本サイト向けに作成しています。</p><ul id="sources"></ul></details>
+      </section>
+    </div>
+    <footer><span class="footer-brand">将棋の道しるべ</span><p>一手ずつ、自分の将棋に。</p><span id="progress"></span></footer>
+  </main>
+  <dialog id="help"><button id="help-close" class="dialog-close" aria-label="使い方を閉じる">×</button><p class="eyebrow">HOW TO STUDY</p><h2>３つのステップで学ぶ</h2><ol><li><strong>先手・後手を選ぶ</strong><p>フローチャートで、自分の手番と相手の出方を確認します。</p></li><li><strong>定跡を選び、盤面を進める</strong><p>「進む」「戻る」、手順のボタン、スライダーで好きな局面へ。← → キーも使えます。金色は直前に動いた駒、緑の枠は移動元です。</p></li><li><strong>一手の狙いを読み、振り返る</strong><p>「分岐の局面へ」で判断する場面に戻れます。覚えた定跡は「学習済み」にすると、このブラウザーに記録されます。</p></li></ol><p>盤面は教材の手順を再生します。自由対局や駒を動かす練習モードではありません。</p></dialog>
+  <div id="toast" role="status" class="toast" hidden></div><noscript><p class="noscript">盤面を操作するにはJavaScriptを有効にしてください。</p></noscript>
+</body></html>
